@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="assets/images/Urooj Fatima (1).png">
     
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,7 +42,7 @@ https://templatemo.com/tm-531-reflux
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="#"><img src="assets/images/authors-image.jpg" alt="" /></a>
+              <a href="#"><img src="assets/images/Brain.jpg" alt="" /></a>
             </div>
             <div class="author-content">
               <h4>Urooj Fatima</h4>
@@ -147,7 +148,7 @@ https://templatemo.com/tm-531-reflux
                 <div class="isotope-item" data-type="HTML+CSS">
                   <figure class="snip1321">
                     <img
-                      src="assets/images/portfolioimage.png"
+                      src="https://ik.imagekit.io/dr7pekofo0w/portfolioimage_FyR0N98uucP.png?ik-sdk-version=javascript-1.4.3&updatedAt=1647573719201"
                       alt="sq-sample26"
             
                     />
@@ -165,8 +166,8 @@ https://templatemo.com/tm-531-reflux
                 <div class="isotope-item" data-type="HTML+CSS">
                   <figure class="snip1321">
                     <img
-                      src="assets/images/portfolioimage2.png"
-                      alt="sq-sample26"/>
+                      src="https://ik.imagekit.io/dr7pekofo0w/portfolioimage2_m8xJbFZz_BJ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1647573714317"
+                      alt="Cv builder"/>
                     <figcaption>
                       <div><a href="https://cv-builder-website.azurewebsites.net/" target="_blank">See Live</a></div>
                       <h4>CV-Builder</h4>
@@ -181,8 +182,8 @@ https://templatemo.com/tm-531-reflux
                 <div class="isotope-item" data-type="Python">
                   <figure class="snip1321">
                     <img
-                      src="assets/images/portfolioimage4.png"
-                      alt="sq-sample26"
+                      src="https://ik.imagekit.io/dr7pekofo0w/portfolioimage4_BmMBfmUdbl0.png?ik-sdk-version=javascript-1.4.3&updatedAt=1647573717198"
+                      alt="real vs fake"
                     />
                     <figcaption>
                       <div><a href="https://real-vs-fake.anvil.app/" target="_blank">See Live</a></div>
@@ -198,8 +199,8 @@ https://templatemo.com/tm-531-reflux
                 <div class="isotope-item" data-type="Others">
                   <figure class="snip1321">
                     <img
-                      src="assets/images/portfolioimage3.jpg"
-                      alt="sq-sample26"
+                      src="https://ik.imagekit.io/dr7pekofo0w/portfolioimage3_nZB5enzzp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1647573712400"
+                      alt="brain"
                     />
                     <figcaption>
                       <div><a href="https://growbrain.network/" target="_blank">See Live</a></div>
@@ -389,6 +390,38 @@ https://templatemo.com/tm-531-reflux
       });
     }
     form.addEventListener("submit", handleSubmit)
+    // SDK initialization
+
+var imagekit = new ImageKit({
+    publicKey : "public_MOuDjBDuD2SLgf6jeA5+mRaAxLM=",
+    urlEndpoint : "https://ik.imagekit.io/dr7pekofo0w",
+    authenticationEndpoint : "http://www.yourserver.com/auth",
+});
+
+// URL generation
+var imageURL = imagekit.url({
+    path : "/default-image.jpg",
+    transformation : [{
+        "height" : "300",
+        "width" : "400"
+    }]
+});
+
+// Upload function internally uses the ImageKit.io javascript SDK
+function upload(data) {
+    var file = document.getElementById("file1");
+    imagekit.upload({
+        file : file.files[0],
+        fileName : "abc1.jpg",
+        tags : ["tag1"]
+    }, function(err, result) {
+        console.log(arguments);
+        console.log(imagekit.url({
+            src: result.url,
+            transformation : [{ height: 300, width: 400}]
+        }));
+    })
+}
     </script>
   </body>
 </html>
